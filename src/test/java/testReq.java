@@ -1,8 +1,17 @@
 import org.testng.annotations.Test;
 
+import static io.restassured.RestAssured.given;
+
 public class testReq {
     @Test
-    public void testReqq() {
-        System.out.println("Hello");
+
+    public void testListUsers() {
+        given()
+                .when()
+                .get("https://reqres.in/api/users?page=2")
+                .then()
+                .assertThat()
+                .statusCode(200);
+
     }
 }
