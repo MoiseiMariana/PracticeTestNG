@@ -1,0 +1,8 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="Converter Temperature Suite" verbose="1" >
+    <test name="TemperatureConversionTests" >
+        <classes>
+            <class name="ConverterTest"/>
+        </classes>
+    </test>
+</suite>
