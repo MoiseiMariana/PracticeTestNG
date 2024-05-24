@@ -28,4 +28,33 @@ public class Steps {
         Allure.addAttachment("Response body", response.body().prettyPrint());
        return response;
     }
+    @Step
+    public static Response PUT(String body, String endpoint) {
+        Allure.addAttachment("URL", baseURI + endpoint);
+        Allure.addAttachment("Request body", body);
+        Response response = given().body(body).put(endpoint);
+        Allure.addAttachment("Status code", String.valueOf(response.statusCode()));
+        Allure.addAttachment("Response body", response.body().prettyPrint());
+        return response;
+    }
+
+    @Step
+    public static Response DELETE(String endpoint) {
+        Allure.addAttachment("URL", baseURI + endpoint);
+        Response response = delete(endpoint);
+        Allure.addAttachment("Status code", String.valueOf(response.statusCode()));
+        Allure.addAttachment("Response body", response.body().prettyPrint());
+        return response;
+    }
+    @Step
+    public static Response PATCH(String body, String endpoint) {
+        Allure.addAttachment("URL", baseURI + endpoint);
+        Allure.addAttachment("Request body", body);
+        Response response = given().body(body).patch(endpoint);
+        Allure.addAttachment("Status code", String.valueOf(response.statusCode()));
+        Allure.addAttachment("Response body", response.body().prettyPrint());
+        return response;
+    }
+
+
 }
